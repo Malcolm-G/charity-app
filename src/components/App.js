@@ -3,6 +3,7 @@ import { Route,Routes } from 'react-router-dom';
 import '../stylesheets/App.css';
 import Home from './Home';
 import Finder from './Finder';
+import Navbar from './Navbar';
 
 function App() {
 
@@ -17,16 +18,17 @@ function App() {
   },[])
   return (
     <div>
-        <Routes>
-          <Route
-          exact path="/"
-          element={<Home charityList={charityList} />}
-          />
-          <Route
-          path="/finder"
-          element={<Finder charityList={charityList}/>}
-          />
-        </Routes>
+      <Navbar/>
+      <Routes>
+        <Route
+        exact path="/"
+        element={<Home charityList={charityList} />}
+        />
+        <Route
+        path="/finder"
+        element={<Finder charityList={charityList}/>}
+        />
+      </Routes>
     </div>
 
   );
