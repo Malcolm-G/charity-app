@@ -7,7 +7,7 @@ function DonationPage(){
         <React.Fragment>
             <div className="container my-3" >
                 <h1 className="" >MAKE A DONATION TO</h1>
-                <h1 className="" >Charity organization Resource Incorporated</h1>
+                <h1 className="" >CHARITY ORGANIZATION RESOURCE INCORPORATED</h1>
             </div>
             <div className="container" >
                 <div className="card" style={{width:"40rem"}} >
@@ -15,11 +15,11 @@ function DonationPage(){
                         <div className="card-body text-bg-secondary d-flex flex-row justify-content-between flex-wrap" >
                             <h3 className="mx-auto" >Select an amount</h3>
                             <div className="break" ></div>
-                            <button type="button" className="btn btn-light mx-3" data-bs-toggle="button" >$25</button>
-                            <button type="button" className="btn btn-light mx-3" data-bs-toggle="button" >$50</button>
-                            <button type="button" className="btn btn-light mx-3" data-bs-toggle="button" >$100</button>
-                            <button type="button" className="btn btn-light mx-3" data-bs-toggle="button" >$250</button>
-                            <button type="button" className="btn btn-light mx-3" data-bs-toggle="button" >Other</button>
+                            <button type="button" className="btn btn-lg btn-light mx-3" data-bs-toggle="button" >$25</button>
+                            <button type="button" className="btn btn-lg btn-light mx-3" data-bs-toggle="button" >$50</button>
+                            <button type="button" className="btn btn-lg btn-light mx-3" data-bs-toggle="button" >$100</button>
+                            <button type="button" className="btn btn-lg btn-light mx-3" data-bs-toggle="button" >$250</button>
+                            <button type="button" className="btn btn-lg btn-light mx-3" data-bs-toggle="button" >Other</button>
                             <div className="break" ></div>
                             <input type="number" placeholder="Amount" className="mx-auto mt-4 " />
                         </div>
