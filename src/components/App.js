@@ -3,6 +3,7 @@ import { Route,Routes } from 'react-router-dom';
 import '../stylesheets/App.css';
 import Home from './Home';
 import Finder from './Finder';
+import DonationPage from './DonationPage';
 
 function App() {
 
@@ -25,6 +26,10 @@ function App() {
           <Route
           path="/finder"
           element={<Finder charityList={charityList}/>}
+          />
+          <Route
+          path="/donations"
+          element={<DonationPage />}
           />
         </Routes>
     </div>
