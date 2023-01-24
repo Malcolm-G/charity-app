@@ -4,6 +4,8 @@ import '../stylesheets/App.css';
 import Home from './Home';
 import Finder from './Finder';
 import Navbar from './Navbar';
+import DonationPage from './DonationPage';
+
 
 function App() {
 
@@ -16,6 +18,7 @@ function App() {
     .then(resp=>resp.json())
     .then(data=>setCharityList(()=>data))
   },[])
+  
   return (
     <div>
       <Navbar/>
@@ -28,6 +31,10 @@ function App() {
         path="/finder"
         element={<Finder charityList={charityList}/>}
         />
+        <Route
+         path="/donations"
+         element={<DonationPage />}
+         />
       </Routes>
     </div>
 
