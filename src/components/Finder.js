@@ -2,7 +2,11 @@ import React from "react";
 
 function Finder(){
 
-    return
+    return(
+        <div>
+            
+        </div>
+    )
 }
 
 export default Finder;
