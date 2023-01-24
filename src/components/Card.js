@@ -1,9 +1,9 @@
 import React from "react"
 
 export default function CardComponent({charityName, category, city, state}){
-    
+
     return (
-        <div className="card col-3 ms-2 mt-2" >
+        <div className="card col-3 mb-2 me-5 h-100" style={{width:'350px'}}>
             <div className="card-body">
                 <h5>{charityName}</h5>
                 <h6>{category}</h6>
