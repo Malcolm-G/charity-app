@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.home-pic{
+  color: #61dafb;
+  background-image: url(./stylesheets/samuel-branch-TCd2MN6vPMg-unsplash.jpg);
+}
