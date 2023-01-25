@@ -19,6 +19,10 @@
     cursor: pointer;
     width: 100%;
   }
+
+  [type=login-button]{
+    color: white;
+  }
   
   /* Add a hover effect for buttons */
   button:hover {

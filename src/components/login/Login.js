@@ -1,4 +1,5 @@
 import React,{ useState } from "react";
+import { Link } from "react-router-dom";
 import '../../stylesheets/Login.css';
 import image from "../../random-acts-kindness-day.png";
 
@@ -12,10 +13,10 @@ function Login(){
             </div>
 
             <div className="container login-container">
-                <label for="uname"><b>Username</b></label>
+                <label htmlFor="uname"><b>Username</b></label>
                 <input type="text" placeholder="Enter Username" name="uname" required/>
 
-                <label for="psw"><b>Password</b></label>
+                <label htmlFor="psw"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="psw" required/>
                 
                 <button type="submit">Login</button>
@@ -25,7 +26,7 @@ function Login(){
             </div>
 
             <div className="container  d-flex" style={{backgroundColor:"#f1f1f1"}}>
-                <button type="login-button" className="cancelbtn mx-auto">Register?</button>
+                <Link type="login-button" className="btn cancelbtn mx-auto" to="/login" >Register?</Link>
                 {/* <span className="psw">Forgot <a href="#">password?</a></span> */}
             </div>
         </form>
