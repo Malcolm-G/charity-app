@@ -5,6 +5,7 @@ import Home from './Home';
 import Finder from './Finder';
 import Navbar from './Navbar';
 import DonationPage from './DonationPage';
+import LoginPage from './login/LoginPage';
 
 
 function App() {
@@ -23,6 +24,10 @@ function App() {
     <div>
       <Navbar/>
       <Routes>
+        <Route
+         path="/login"
+         element={<LoginPage />}
+         />
         <Route
         exact path="/"
         element={<Home charityList={charityList} />}
