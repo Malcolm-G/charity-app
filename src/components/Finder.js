@@ -4,7 +4,10 @@ import "../stylesheets/finder.css"
 
 function Finder({charityList}){
 
+    const [charities,setCharities] =useState([...charityList])
     const [categories, setCategories] = useState([])
+    const [state, setState] = useState("")
+    const [category, setCategory] = useState("")
 
     useEffect(() => {
         fetch("https://json-server-vercel2-gamma.vercel.app/data")
@@ -12,9 +15,24 @@ function Finder({charityList}){
         .then(data => setCategories(data))
     },[])
 
-    const categoryOptions = categories.map(category => <option key={category.categoryId} value={category.categoryId}>{category.categoryDesc}</option> )
+    useEffect(() => {
+        setCharities([...charityList])
+    },[charityList])
 
-    const charityCard = charityList.map((charity) => {
+    function handleSearch(e){
+        e.preventDefault()
+        const newResults = charities.filter(charity => charity.state === state && charity.category === category)
+        setCharities(newResults)
+        setCategory("")
+        setState("")
+    }
+
+    const categoryOptions = categories.map((category,index) => <option key={index} value={category.categoryDesc}>{category.categoryDesc}</option> )
+
+    const states = ([...new Set(charities.map(location => location.state))])
+    const location = states.map((state,index) => <option key={index} value={state}>{state}</option>)
+
+    const charityCard = charities.map((charity) => {
         return (
         <CardComponent 
         key={charity.ein}
@@ -27,18 +45,19 @@ function Finder({charityList}){
 
     return(
         <>
-        <form>   
+        <form onSubmit={handleSearch}>   
 
             {/* input for search category */}
             <label htmlFor="category">Category:</label>
-            <select className="form-select" name="category" id="category">
+            <select className="form-select" name="category" id="category" onChange={e => setCategory(e.target.value)}>
                 {categoryOptions}
             </select>
 
             {/*input for search location*/}
             <label htmlFor="location">Location:</label>
-            <select className="form-select" name="location" id="location">
+            <select className="form-select" name="location" id="location" onChange={e => setState(e.target.value)}>
                 <option value="All" selected>All</option>
+                {location}
             </select>
 
             <input type="submit" className="btn btn-primary" value="Search"/>
@@ -46,7 +65,7 @@ function Finder({charityList}){
         </form>
 
         <div id="searchResults" className="row">
-            <h3 >Search Results({charityList.length})</h3>
+            <h3 >Search Results({charities.length})</h3>
            {charityCard} 
         </div>
         

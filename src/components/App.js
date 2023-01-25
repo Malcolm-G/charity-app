@@ -17,6 +17,7 @@ function App() {
   },[])
   return (
     <div>
+      <Finder charityList={charityList}/>
         <Routes>
           <Route
           exact path="/"
