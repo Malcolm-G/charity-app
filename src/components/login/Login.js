@@ -19,13 +19,12 @@ function Login(){
                 <input type="password" placeholder="Enter Password" name="psw" required/>
 
                 <button type="submit">Login</button>
-            </div>
                 {/* <label>
                 <input type="checkbox" checked="" name="remember"/> Remember me
-                </label>
+                </label> */}
             </div>
 
-            <div class="container login-container" style={{backgroundColor:"#f1f1f1"}}>
+            {/* <div class="container login-container" style={{backgroundColor:"#f1f1f1"}}>
                 <button type="login-button" class="cancelbtn">Cancel</button>
                 <span class="psw">Forgot <a href="#">password?</a></span>
             </div> */}
