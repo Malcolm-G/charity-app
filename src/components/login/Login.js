@@ -17,15 +17,15 @@ function Login(){
 
                 <label for="psw"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="psw" required/>
-
+                
                 <button type="submit">Login</button>
                 {/* <label>
                 <input type="checkbox" checked="" name="remember"/> Remember me
                 </label> */}
             </div>
 
-            <div class="container login-container" style={{backgroundColor:"#f1f1f1"}}>
-                <button type="login-button" class="cancelbtn">Cancel</button>
+            <div class="container  d-flex" style={{backgroundColor:"#f1f1f1"}}>
+                <button type="login-button" className="cancelbtn mx-auto">Register?</button>
                 {/* <span class="psw">Forgot <a href="#">password?</a></span> */}
             </div>
         </form>
