@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CardComponent from "./Card";
 
 function Finder({charityList}){
+
+    const [categories, setCategories] = useState([])
+
+    useEffect(() => {
+        fetch("https://json-server-vercel2-gamma.vercel.app/data")
+        .then(response => response.json())
+        .then(data => setCategories(data))
+    },[])
+
+    const categoryOptions = categories.map(category => <option key={category.categoryId} value={category.categoryId}>{category.categoryDesc}</option> )
 
     const charityCard = charityList.map((charity) => {
         return (
@@ -21,7 +31,7 @@ function Finder({charityList}){
             {/* input for search category */}
             <label htmlFor="category">Category:</label>
             <select className="form-select" name="category" id="category">
-                <option value="All" selected>All</option>
+                {categoryOptions}
             </select>
 
             {/*input for search location*/}
