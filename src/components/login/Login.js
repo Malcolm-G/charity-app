@@ -7,11 +7,11 @@ function Login(){
 
     return(
         <form action="action_page.php" method="post">
-            <div class="imgcontainer">
-                <img src={image} alt="Avatar" class="avatar"/>
+            <div className="imgcontainer">
+                <img src={image} alt="Avatar" className="avatar"/>
             </div>
 
-            <div class="container login-container">
+            <div className="container login-container">
                 <label for="uname"><b>Username</b></label>
                 <input type="text" placeholder="Enter Username" name="uname" required/>
 
@@ -24,9 +24,9 @@ function Login(){
                 </label> */}
             </div>
 
-            <div class="container  d-flex" style={{backgroundColor:"#f1f1f1"}}>
+            <div className="container  d-flex" style={{backgroundColor:"#f1f1f1"}}>
                 <button type="login-button" className="cancelbtn mx-auto">Register?</button>
-                {/* <span class="psw">Forgot <a href="#">password?</a></span> */}
+                {/* <span className="psw">Forgot <a href="#">password?</a></span> */}
             </div>
         </form>
     )
