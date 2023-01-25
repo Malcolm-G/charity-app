@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CardComponent from "./Card";
+import "../stylesheets/finder.css"
 
 function Finder({charityList}){
 
