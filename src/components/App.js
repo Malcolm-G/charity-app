@@ -18,6 +18,14 @@ function App() {
     .then(resp=>resp.json())
     .then(data=>setCharityList(()=>data))
   },[])
+
+  const [categories, setCategories] = useState([])
+
+  useEffect(() => {
+      fetch("https://json-server-vercel2-gamma.vercel.app/data")
+      .then(response => response.json())
+      .then(data => setCategories(data))
+  },[])
   
   return (
     <div>
@@ -25,7 +33,7 @@ function App() {
       <Routes>
         <Route
         exact path="/"
-        element={<Home charityList={charityList} />}
+        element={<Home charityList={charityList} categories={categories} />}
         />
         <Route
         path="/finder"

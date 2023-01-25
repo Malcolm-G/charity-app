@@ -1,8 +1,9 @@
-import React from "react";
+import React  from "react";
 import '../stylesheets/home.css'
 import CardComponent from "./Card";
+import { useEffect, useState } from 'react';
 
-function Home({charityList}){
+function Home({charityList, categories}){
 
     const charityCard = charityList.map((charity,index) => {
        if (index<=10){return (
@@ -15,7 +16,15 @@ function Home({charityList}){
         />
         )}
         })
+
   
+
+        const categoryOptions = categories.map((category,index) => 
+            
+        <ul className="col" key={index} value={category.categoryId}>{category.categoryDesc}</ul>
+           
+         )
+
     return(
         <div>
             <header>
@@ -28,10 +37,15 @@ function Home({charityList}){
             <p>Touch A Life is a non-profit organization that represents charity organizations which have undergone a series of screening to ensure they meet the highest standards of public accountability and effectiveness. </p>
             <p>We guarantee every patner charity included is financially competent and is a non-profit organization </p>
             <h4>Some of our enlisted charity organizations </h4>
-            <div id='home-list' className="d-flex" >
-                
+            <div id='home-list' className="d-flex " >
              {charityCard}
             </div>
+             <div>
+            <h4 className="mt-5">Charity Categories</h4>
+            <div className="row mt-4">
+              {categoryOptions}
+             </div>
+             </div>
           </div>
 
         </div>
