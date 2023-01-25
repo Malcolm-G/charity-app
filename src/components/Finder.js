@@ -4,10 +4,9 @@ import "../stylesheets/finder.css"
 
 function Finder({charityList}){
 
-    const [charities,setCharities] =useState([...charityList])
     const [categories, setCategories] = useState([])
-    const [state, setState] = useState("")
-    const [category, setCategory] = useState("")
+    const [state, setState] = useState("All")
+    const [category, setCategory] = useState("Not Provided")
 
     useEffect(() => {
         fetch("https://json-server-vercel2-gamma.vercel.app/data")
@@ -15,24 +14,27 @@ function Finder({charityList}){
         .then(data => setCategories(data))
     },[])
 
-    useEffect(() => {
-        setCharities([...charityList])
-    },[charityList])
 
-    function handleSearch(e){
-        e.preventDefault()
-        const newResults = charities.filter(charity => charity.state === state && charity.category === category)
-        setCharities(newResults)
-        setCategory("")
-        setState("")
-    }
-
+        const searchResults = charityList.filter((item) => {
+            if(category === "Not Provided"){
+                return true
+            }else{
+            return item.category.toLowerCase().includes(category.toLowerCase())
+        }
+        })
+        const finalResult = searchResults.filter((result) => {
+            if(state === "All"){
+                return true
+            }else{
+            return result.state.toLowerCase().includes(state.toLowerCase())
+            }
+        })
+    
     const categoryOptions = categories.map((category,index) => <option key={index} value={category.categoryDesc}>{category.categoryDesc}</option> )
-
-    const states = ([...new Set(charities.map(location => location.state))])
+    const states = ([...new Set(charityList.map(location => location.state))])
     const location = states.map((state,index) => <option key={index} value={state}>{state}</option>)
 
-    const charityCard = charities.map((charity) => {
+    const charityCard = finalResult.map((charity) => {
         return (
         <CardComponent 
         key={charity.ein}
@@ -45,27 +47,23 @@ function Finder({charityList}){
 
     return(
         <>
-        <form onSubmit={handleSearch}>   
-
+        <div class="row">   
             {/* input for search category */}
-            <label htmlFor="category">Category:</label>
-            <select className="form-select" name="category" id="category" onChange={e => setCategory(e.target.value)}>
+            <label id="categoryName" htmlFor="category">Category:</label>
+            <select className="form-select" name="category" id="category" onChange={e => setCategory(e.target.value)} style={{width:'300px'}}>
                 {categoryOptions}
             </select>
 
             {/*input for search location*/}
-            <label htmlFor="location">Location:</label>
-            <select className="form-select" name="location" id="location" onChange={e => setState(e.target.value)}>
-                <option value="All" selected>All</option>
+            <label id="locationName" htmlFor="location">Location:</label>
+            <select id="location" className="form-select" value={state} name="location" onChange={e => setState(e.target.value)} style={{width:'300px'}}>
+                <option value="All" >All</option>
                 {location}
             </select>
-
-            <input type="submit" className="btn btn-primary" value="Search"/>
-
-        </form>
+        </div>
 
         <div id="searchResults" className="row">
-            <h3 >Search Results({charities.length})</h3>
+            <h3 >Search Results({finalResult.length})</h3>
            {charityCard} 
         </div>
         
