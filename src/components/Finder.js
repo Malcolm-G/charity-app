@@ -5,6 +5,8 @@ import "../stylesheets/finder.css"
 function Finder({charityList}){
 
     const [categories, setCategories] = useState([])
+    const [state, setState] = useState("All")
+    const [category, setCategory] = useState("Not Provided")
 
     useEffect(() => {
         fetch("https://json-server-vercel2-gamma.vercel.app/data")
@@ -12,9 +14,27 @@ function Finder({charityList}){
         .then(data => setCategories(data))
     },[])
 
-    const categoryOptions = categories.map(category => <option key={category.categoryId} value={category.categoryId}>{category.categoryDesc}</option> )
 
-    const charityCard = charityList.map((charity) => {
+        const searchResults = charityList.filter((item) => {
+            if(category === "Not Provided"){
+                return true
+            }else{
+            return item.category.toLowerCase().includes(category.toLowerCase())
+        }
+        })
+        const finalResult = searchResults.filter((result) => {
+            if(state === "All"){
+                return true
+            }else{
+            return result.state.toLowerCase().includes(state.toLowerCase())
+            }
+        })
+    
+    const categoryOptions = categories.map((category,index) => <option key={index} value={category.categoryDesc}>{category.categoryDesc}</option> )
+    const states = ([...new Set(charityList.map(location => location.state))])
+    const location = states.map((state,index) => <option key={index} value={state}>{state}</option>)
+
+    const charityCard = finalResult.map((charity) => {
         return (
         <CardComponent 
         key={charity.ein}
@@ -27,26 +47,23 @@ function Finder({charityList}){
 
     return(
         <>
-        <form>   
-
+        <div class="row">   
             {/* input for search category */}
-            <label htmlFor="category">Category:</label>
-            <select className="form-select" name="category" id="category">
+            <label id="categoryName" htmlFor="category">Category:</label>
+            <select className="form-select" name="category" id="category" onChange={e => setCategory(e.target.value)} style={{width:'300px'}}>
                 {categoryOptions}
             </select>
 
             {/*input for search location*/}
-            <label htmlFor="location">Location:</label>
-            <select className="form-select" name="location" id="location">
-                <option value="All" selected>All</option>
+            <label id="locationName" htmlFor="location">Location:</label>
+            <select id="location" className="form-select" value={state} name="location" onChange={e => setState(e.target.value)} style={{width:'300px'}}>
+                <option value="All" >All</option>
+                {location}
             </select>
-
-            <input type="submit" className="btn btn-primary" value="Search"/>
-
-        </form>
+        </div>
 
         <div id="searchResults" className="row">
-            <h3 >Search Results({charityList.length})</h3>
+            <h3 >Search Results({finalResult.length})</h3>
            {charityCard} 
         </div>
         
