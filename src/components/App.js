@@ -29,6 +29,8 @@ function App() {
       .then(response => response.json())
       .then(data => setCategories(data))
   },[])
+
+  
   
   return (
     <div>
