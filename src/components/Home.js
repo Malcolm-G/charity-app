@@ -21,10 +21,11 @@ function Home({charityList, categories}){
 
         const categoryOptions = categories.map((category,index) => 
             
-        <ul className="col" key={index} value={category.categoryId}>{category.categoryDesc}</ul>
+        <ul className="col-3 border border-dark" key={index} value={category.categoryId}>{category.categoryDesc}</ul>
            
          )
-
+         
+         
     return(
         <div>
             <header>
@@ -41,9 +42,11 @@ function Home({charityList, categories}){
              {charityCard}
             </div>
              <div>
-            <h4 className="mt-5">Charity Categories</h4>
-            <div className="row mt-4">
+            <h4 className="mt-5 display-4">Charity Categories</h4>
+            <div className="container">
+            <div className="row border border-dark">
               {categoryOptions}
+             </div>
              </div>
              </div>
           </div>
