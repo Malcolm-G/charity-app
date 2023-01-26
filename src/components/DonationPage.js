@@ -23,7 +23,7 @@ function DonationPage(){
                 </div>
             </div>
             <div className="container mx-auto" >
-                <div className="card mx-auto" style={{width:"70rem"}} >
+                <div className="card mx-auto mb-5" style={{width:"70rem"}} >
                     <form>
                         <div className="card-body text-bg-secondary d-flex flex-row justify-content-between flex-wrap" >
                             <h3 className="mx-auto" >Select an amount</h3>
