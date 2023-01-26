@@ -8,50 +8,50 @@
         {
             "charity_name":"FRANK G ARCORI FOUNDATION INC",
             "ein":"261150126",
-            "amount":20000
+            "amount":200
         },
         {
             "charity_name":"CHILDRENS CHORUS OF SPRINGFIELD",
             "ein":"261149740",
-            "amount": 10000
+            "amount": 100
         }
       ]
     },
     {
-      "id": 1,
+      "id": 2,
       "username": "Lorraine",
       "password": "Lorr1234",
       "donations": [
         {
             "charity_name":"VERONA COURT NEIGHBORHOOD WATCH",
             "ein":"261150790",
-            "amount":15000
+            "amount":150
         }
         
       ]
     },
     {
-      "id": 1,
+      "id": 3,
       "username": "Brian",
       "password": "Brian1234",
       "donations": [
         {
             "charity_name":"DAYBREAK OF GROVE INC",
             "ein":"261151468",
-            "amount":50000
+            "amount":500
         }
       
       ]
     },
     {
-      "id": 1,
+      "id": 4,
       "username": "Luul",
       "password": "Luul1234",
       "donations": [
         {
             "charity_name":"EARN TO LEARN",
             "ein":"261151754",
-            "amount":35000
+            "amount":350
         }
       ]
     }
