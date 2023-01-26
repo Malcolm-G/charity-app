@@ -39,7 +39,6 @@ function Home({charityList, categories}){
     return(
         <div>
             <header>
-          <h1>TOUCH A LIFE</h1>
           <p>Come and make them Smile</p>
           </header>
           <div className="home-pic text-muted">
@@ -47,7 +46,7 @@ function Home({charityList, categories}){
             <p>We are your trusted partners in support of charity and charity organizations </p>
             <p>Touch A Life is a non-profit organization that represents charity organizations which have undergone a series of screening to ensure they meet the highest standards of public accountability and effectiveness. </p>
             <p>We guarantee every patner charity included is financially competent and is a non-profit organization </p>
-            <h4>Some of our enlisted charity organizations </h4>
+            <h4 className="mb-0">Some of our enlisted charity organizations </h4>
             <div id='home-list' className="d-flex " >
              {charityCard}
             </div>

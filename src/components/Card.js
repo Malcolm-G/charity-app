@@ -19,7 +19,7 @@ export default function CardComponent({charityName, category, city, state,takeNa
                 <p>{city}, {state}</p>
                 <div className="">
                   <Link className="btn position-absolute bottom-0 start-0 btn-danger col-6 me-2" to={`/details/${charityName}`} >Show Details</Link>
-                  <button className="btn btn-info col-4 position-absolute bottom-0 start-50 ms-5 mb-0">$ Donate</button>
+                  <button className="btn btn-info col-4 position-absolute bottom-0 start-50 ms-5 mb-0 ">$ Donate</button>
                  </div>
             </div>
     </div>
