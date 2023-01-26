@@ -2,18 +2,10 @@ import React, { useEffect, useState } from "react";
 import CardComponent from "./Card";
 import "../stylesheets/finder.css"
 
-function Finder({charityList}){
+function Finder({charityList, categories}){
 
-    const [categories, setCategories] = useState([])
     const [state, setState] = useState("All")
     const [category, setCategory] = useState("Not Provided")
-
-    useEffect(() => {
-        fetch("https://json-server-vercel2-gamma.vercel.app/data")
-        .then(response => response.json())
-        .then(data => setCategories(data))
-    },[])
-
 
         const searchResults = charityList.filter((item) => {
             if(category === "Not Provided"){
@@ -47,7 +39,7 @@ function Finder({charityList}){
 
     return(
         <>
-        <div class="row">   
+        <div className="row">   
             {/* input for search category */}
             <label id="categoryName" htmlFor="category">Category:</label>
             <select className="form-select" name="category" id="category" onChange={e => setCategory(e.target.value)} style={{width:'300px'}}>
