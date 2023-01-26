@@ -67,7 +67,7 @@ function App() {
          />
          <Route
          path="/my-donations"
-         element={<MyDonations />}
+         element={<MyDonations user={currentUser}/>}
          />
          <Route
         path="/details/:name"
