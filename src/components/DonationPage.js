@@ -17,13 +17,13 @@ function DonationPage(){
     return(
         <React.Fragment>
             <div className="container-75 heading" >
-                <div className="container pt-4" >
-                    <h1 className="" >MAKE A DONATION TO</h1>
-                    <h1 className="" >CHARITY ORGANIZATION RESOURCE INCORPORATED</h1>
+                <div className="container-75 pt-4 text-center" >
+                    <h1 className="mb-0 pb-2" style={{backgroundColor:'whitesmoke'}} >MAKE A DONATION TO</h1>
+                    <h1 className="mt-0" style={{backgroundColor:'whitesmoke'}} >CHARITY ORGANIZATION RESOURCE INCORPORATED</h1>
                 </div>
             </div>
-            <div className="container" >
-                <div className="card" style={{width:"40rem"}} >
+            <div className="container mx-auto" >
+                <div className="card mx-auto" style={{width:"70rem"}} >
                     <form>
                         <div className="card-body text-bg-secondary d-flex flex-row justify-content-between flex-wrap" >
                             <h3 className="mx-auto" >Select an amount</h3>
