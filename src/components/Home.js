@@ -31,9 +31,9 @@ function Home({charityList, categories}){
           <h1>TOUCH A LIFE</h1>
           <p>Come and make them Smile</p>
           </header>
-          <div className="home-pic">
+          <div className="home-pic text-muted">
             <h3>WELCOME !!</h3>
-            <p>We are your trusted patners in support of charity and charity organizations </p>
+            <p>We are your trusted partners in support of charity and charity organizations </p>
             <p>Touch A Life is a non-profit organization that represents charity organizations which have undergone a series of screening to ensure they meet the highest standards of public accountability and effectiveness. </p>
             <p>We guarantee every patner charity included is financially competent and is a non-profit organization </p>
             <h4>Some of our enlisted charity organizations </h4>
