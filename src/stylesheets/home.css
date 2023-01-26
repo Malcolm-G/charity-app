@@ -28,3 +28,32 @@
   .home-pic{
     text-align: center;
   }
+
+  #cat-display{
+    font-size: px;
+    font-weight: 700;
+    font-style: oblique;
+  }
+  #welcome{
+    background-clip: text;
+    background-image: linear-gradient(to right, #09f1b8, #00a2ff, #ff00d2, #fed90f);
+    font-weight: 800;
+    font-family:'Trebuchet MS';
+    font-style: italic;
+  }
+  p{
+    font-family: Georgia;
+    font-size: 18px;
+    margin: 0 0 20px;
+  }
+
+  h4{
+    
+   font-family:Tahoma;
+   font-size: 25px;
+   background-image: linear-gradient(to right, #09f1b8, #00a2ff, #ff00d2, #fed90f)
+  }
+
+  span{
+    font-style: oblique;
+  }
