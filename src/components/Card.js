@@ -1,7 +1,7 @@
 import React from "react"
 import {Link, useNavigate} from "react-router-dom"
 
-export default function CardComponent({charityName, category, city, state,takeName}){
+export default function CardComponent({charityName, category, city, state,takeName,ein}){
 
     const navigate = useNavigate()
 
@@ -11,7 +11,7 @@ export default function CardComponent({charityName, category, city, state,takeNa
     }
 
     function donationClick(){
-        navigate(`/donations`,{state:{charityName:`${charityName}`}})
+        navigate(`/donations`,{state:{charityName:`${charityName}`,ein:`${ein}`}})
     }
 
     return (

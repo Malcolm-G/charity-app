@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import { useLocation } from "react-router-dom";
 import '../stylesheets/DonationPage.css'
 
-function DonationPage(){
+function DonationPage({user,users,setCurrentUser}){
 
     const [amountValue,setAmountValue] = useState(5);
     const location = useLocation();
@@ -14,17 +14,27 @@ function DonationPage(){
         setAmountValue(()=>value);
     }
 
+    function donateSubmit(e){
+        e.preventDefault()
+        const newDonations = [...user.donations,{charity_name:`${location.state.charityName}`,ein:`${location.state.ein}`,amount:`${amountValue}`}]
+        const updatedUser = {...user,'donations':`${newDonations}`}
+
+
+        console.log(updatedUser);
+
+    }
+
     return(
         <React.Fragment>
             <div className="container-75 heading" >
                 <div className="container-75 pt-4 text-center" >
                     <h1 className="mb-0 pb-2" style={{backgroundColor:'whitesmoke'}} >MAKE A DONATION TO</h1>
-                    <h1 className="mt-0" style={{backgroundColor:'whitesmoke'}} >CHARITY ORGANIZATION RESOURCE INCORPORATED</h1>
+                    <h1 className="mt-0" style={{backgroundColor:'whitesmoke'}} > {location.state.charityName} </h1>
                 </div>
             </div>
             <div className="container mx-auto" >
                 <div className="card mx-auto mb-5" style={{width:"70rem"}} >
-                    <form>
+                    <form onSubmit={(e)=>donateSubmit(e)} >
                         <div className="card-body text-bg-secondary d-flex flex-row justify-content-between flex-wrap" >
                             <h3 className="mx-auto" >Select an amount</h3>
                             <div className="break" ></div>
@@ -67,11 +77,11 @@ function DonationPage(){
                             </label>
                             <label className="d-flex flex-column w-25" >
                                 First Name
-                                <input required type="text" placeholder="" />
+                                <input type="text" placeholder="" />
                             </label>
                             <label className="d-flex flex-column w-25" >
                                 Last Name
-                                <input required type="text" placeholder="" />
+                                <input type="text" placeholder="" />
                             </label>
 
                             <div className="break" ></div>
@@ -93,7 +103,7 @@ function DonationPage(){
                             <div className="break" ></div>
                             <label className="d-flex flex-column w-50" >
                                 City
-                                <input required type="text" placeholder="" />
+                                <input type="text" placeholder="" />
                             </label>
                             <label className="d-flex flex-column" >
                                 State
@@ -107,7 +117,7 @@ function DonationPage(){
                             </label>
                             <label className="d-flex flex-column" >
                                 Country
-                                <input required type="text" placeholder="" />
+                                <input type="text" placeholder="" />
                             </label> 
 
                             <div className="break" ></div>

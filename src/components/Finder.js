@@ -35,6 +35,7 @@ function Finder({charityList, categories}){
         category={charity.category} 
         city={charity.city}
         state={charity.state}
+        ein={charity.ein}
         />
         )})
 
