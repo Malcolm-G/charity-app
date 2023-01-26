@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import CardComponent from "./Card";
 import "../stylesheets/finder.css"
 
+
 function Finder({charityList}){
 
     const [categories, setCategories] = useState([])
@@ -64,7 +65,8 @@ function Finder({charityList}){
 
         <div id="searchResults" className="row">
             <h3 >Search Results({finalResult.length})</h3>
-           {charityCard} 
+             {charityCard} 
+          
         </div>
         
         </>

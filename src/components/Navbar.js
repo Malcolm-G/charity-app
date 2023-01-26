@@ -1,10 +1,12 @@
+import { buildQueries } from "@testing-library/react";
 import React from "react";
 import { Link } from "react-router-dom";
+
 
 function Navbar(){
 
     return(
-        <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid">
                     <Link className="navbar-brand h1" to="/"
                     >Charity-App</Link>

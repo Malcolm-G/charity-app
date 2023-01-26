@@ -20,7 +20,6 @@ function App() {
     fetch(SEARCH_API)
     .then(resp=>resp.json())
     .then(data=>setCharityList(()=>data))
-    console.log(charityList)
   },[])
 
   const [categories, setCategories] = useState([])
