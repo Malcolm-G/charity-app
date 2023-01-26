@@ -13,14 +13,13 @@ function App() {
   const SEARCH_API = "https://charity-app-charity-list-db-json.vercel.app/api/data"
 
   const [charityList,setCharityList] = useState([]);
+  const [categories, setCategories] = useState([])
 
   useEffect(()=>{
     fetch(SEARCH_API)
     .then(resp=>resp.json())
     .then(data=>setCharityList(()=>data))
   },[])
-
-  const [categories, setCategories] = useState([])
 
   useEffect(() => {
       fetch("https://json-server-vercel2-gamma.vercel.app/data")
@@ -34,19 +33,19 @@ function App() {
       <Routes>
         <Route
         exact path="/"
-        element={<Home charityList={charityList} categories={categories} />}
+        element={<Home charityList={charityList} categories={categories}/>}
         />
         <Route
         path="/finder"
-        element={<Finder charityList={charityList}/>}
+        element={<Finder charityList={charityList} categories={categories}/>}
         />
         <Route
          path="/donations"
          element={<DonationPage />}
          />
          <Route
-        path="/details"
-        element={<DetailsPage />}
+        path="/details/:name"
+        element={<DetailsPage charityList={charityList} />}
         /> 
       </Routes>
     </div>

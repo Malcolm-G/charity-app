@@ -1,7 +1,14 @@
 import React from "react"
-import {Route,Routes,Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 
-export default function CardComponent({charityName, category, city, state}){
+export default function CardComponent({charityName, category, city, state,takeName}){
+
+    const navigate = useNavigate()
+
+    function handleClick()
+    {
+        navigate(`/details/${charityName}`)
+    }
 
     return (
          <>
@@ -10,7 +17,7 @@ export default function CardComponent({charityName, category, city, state}){
                 <h5>{charityName}</h5>
                 <h6>{category}</h6>
                 <p>{city}, {state}</p>
-                <Link className="btn btn-primary col-6 me-2" to="/details" >Show Details</Link>
+                <Link className="btn btn-primary col-6 me-2" to={`/details/${charityName}`} >Show Details</Link>
                 <button className="btn btn-success col-4">$ Donate</button>
             </div>
         </div>
