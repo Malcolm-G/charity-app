@@ -3,7 +3,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-function Navbar(){
+function Navbar({currentUser,isLoggedIn,setIsLoggedIn}){
+
+    const ulClasses = isLoggedIn?'navbar-nav mx-auto mb-2 mb-lg-0 w-50':`navbar-nav mx-auto mb-2 mb-lg-0`;
+
+    function nameClicked(){
+        if(window.confirm('Do you wish to Sign out?')){
+            setIsLoggedIn(false)
+        }
+    }
 
     return(
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -14,16 +22,16 @@ function Navbar(){
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav mx-auto mb-2 mb-lg-0 w-50">
+                        <ul className={ulClasses}>
                             <li className="nav-item">
                                 <Link className="nav-link mx-5" aria-current="page" to="/finder">CHARITY-FINDER</Link>
                             </li>
-                            <li className="nav-item">
+                            {isLoggedIn?<li className="nav-item">
                                 <Link className="nav-link mx-5" aria-current="page" to="/my-donations   ">MY-DONATIONS</Link>
-                            </li>
+                            </li>:null}
                         </ul>
                     </div>
-                    <Link className="nav-link navbar-brand" to="/login" >LOGIN</Link>
+                    {isLoggedIn?<Link className="nav-link navbar-brand" to="" onClick={nameClicked} >{currentUser.username}</Link>:<Link className="nav-link navbar-brand" to="/login" >LOGIN</Link>}
                 </div>
             </nav>
     )
