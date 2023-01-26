@@ -17,7 +17,9 @@ function App() {
   const SEARCH_API = "https://charity-app-charity-list-db-json.vercel.app/api/data"
 
   const [charityList,setCharityList] = useState([]);
-  const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState([]);
+  const [users,setUsers] = useState([])
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(()=>{
     fetch(SEARCH_API)
@@ -30,6 +32,12 @@ function App() {
       .then(response => response.json())
       .then(data => setCategories(data))
   },[])
+
+  useEffect(() => {
+    fetch("https://charity-users-db.vercel.app/users")
+    .then(response => response.json())
+    .then(data => setUsers(data))
+},[])
   
   return (
     <div>
@@ -37,11 +45,11 @@ function App() {
       <Routes>
         <Route
          path="/login"
-         element={<Login />}
+         element={<Login users={users} setIsLoggedIn={setIsLoggedIn} />}
          />
          <Route
          path="/signup"
-         element={<SignUp />}
+         element={<SignUp users={users} />}
          />
         <Route
         exact path="/"

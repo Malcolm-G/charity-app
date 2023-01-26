@@ -1,23 +1,54 @@
 import React,{ useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import '../../stylesheets/Login.css';
 import image from "../../random-acts-kindness-day.png";
 
-function Login(){
+function Login({users,setIsLoggedIn}){
 
+    const [username,setUsername] = useState("");
+    const [password,setPassword] = useState("");
+
+    const navigate = useNavigate();
+
+    function loginClicked(e){
+        e.preventDefault();
+        const userFound = users.find(user=>user.username===username);
+
+        if(userFound){
+            if(userFound.password===password){
+                setIsLoggedIn(true)
+                navigate('/')
+            }
+            else{
+                alert('Username or password does not exist')
+            }
+        }
+
+        else{
+            alert('Username does not exist')
+        }
+    }
 
     return(
-        <form action="action_page.php" method="post">
+        <form
+        onSubmit={(e)=>loginClicked(e)}
+         method="#">
             <div className="imgcontainer">
                 <img src={image} alt="Avatar" className="avatar"/>
             </div>
 
             <div className="container login-container">
                 <label htmlFor="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required/>
+                <input
+                onChange={(e)=>setUsername(e.target.value)}
+                value={username}
+                type="text" placeholder="Enter Username" name="uname" required/>
 
                 <label htmlFor="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required/>
+                <input
+                onChange={(e)=>setPassword(e.target.value)}
+                value={password}
+                type="password" placeholder="Enter Password" name="psw" required/>
                 
                 <button type="submit">Login</button>
                 {/* <label>
