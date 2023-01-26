@@ -5,6 +5,7 @@ import Home from './Home';
 import Finder from './Finder';
 import Navbar from './Navbar';
 import DonationPage from './DonationPage';
+import DetailsPage from './DetailsPage';
 
 
 function App() {
@@ -43,6 +44,10 @@ function App() {
          path="/donations"
          element={<DonationPage />}
          />
+         <Route
+        path="/details"
+        element={<DetailsPage />}
+        /> 
       </Routes>
     </div>
 

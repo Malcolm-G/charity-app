@@ -47,7 +47,7 @@ function Finder({charityList}){
 
     return(
         <>
-        <div class="row">   
+        <div className="row">   
             {/* input for search category */}
             <label id="categoryName" htmlFor="category">Category:</label>
             <select className="form-select" name="category" id="category" onChange={e => setCategory(e.target.value)} style={{width:'300px'}}>
