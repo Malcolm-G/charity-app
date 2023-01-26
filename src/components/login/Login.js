@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import '../../stylesheets/Login.css';
 import image from "../../random-acts-kindness-day.png";
 
-function Login({users,setIsLoggedIn}){
+function Login({users,setIsLoggedIn,setCurrentUser}){
 
     const [username,setUsername] = useState("");
     const [password,setPassword] = useState("");
@@ -16,7 +16,8 @@ function Login({users,setIsLoggedIn}){
 
         if(userFound){
             if(userFound.password===password){
-                setIsLoggedIn(true)
+                setIsLoggedIn(true);
+                setCurrentUser(userFound);
                 navigate('/')
             }
             else{

@@ -20,6 +20,8 @@ function App() {
   const [categories, setCategories] = useState([]);
   const [users,setUsers] = useState([])
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser,setCurrentUser] = useState({});
+
 
   useEffect(()=>{
     fetch(SEARCH_API)
@@ -41,11 +43,11 @@ function App() {
   
   return (
     <div>
-      <Navbar/>
+      <Navbar currentUser={currentUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Routes>
         <Route
          path="/login"
-         element={<Login users={users} setIsLoggedIn={setIsLoggedIn} />}
+         element={<Login users={users} setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser} />}
          />
          <Route
          path="/signup"
