@@ -6,11 +6,11 @@ import image from "../../closeup-diverse-people-joining-their-hands.jpg"
 
 function LoginPage(){
 
-    return(
+    // return(
 
-        <Login/>
-        // <SignUp/>
-    )
+    //     // <Login/>
+    //     // <SignUp/>
+    // )
 }
 
 export default LoginPage;

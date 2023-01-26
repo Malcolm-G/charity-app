@@ -1,7 +1,14 @@
 import React from "react";
 import "../../stylesheets/SignUp.css"
+import { useNavigate } from "react-router-dom";
 
 function SignUp(){
+
+    const navigate = useNavigate();
+
+    function cancelClicked(){
+        navigate("/login");
+    }
 
     return(
         <form action="action_page.php" style={{border:"1px solid #ccc"}}>
@@ -26,7 +33,7 @@ function SignUp(){
                 <p>By creating an account you agree to our <a href="#" style={{color:"dodgerblue"}}>Terms & Privacy</a>.</p> */}
 
                 <div className="clearfix">
-                <button type="button" className="cancelbtn">Cancel</button>
+                <button type="button" className="cancelbtn" onClick={cancelClicked} >Cancel</button>
                 <button type="submit" className="signupbtn">Sign Up</button>
                 </div>
             </div>
