@@ -53,3 +53,7 @@
    font-size: 25px;
    background-image: linear-gradient(to right, #09f1b8, #00a2ff, #ff00d2, #fed90f)
   }
+
+  span{
+    font-style: oblique;
+  }

@@ -45,8 +45,10 @@ function Home({charityList, categories}){
             <h1 id="welcome">WELCOME !!</h1>
             <div>
             <p>We are your trusted partners in support of charity and charity organizations </p>
-            <p>Touch A Life is a non-profit organization that represents charity organizations which have undergone a series of screening to ensure they meet the highest standards of public accountability and effectiveness. </p>
+            <p className="me-5 ms-5">Touch A Life is a non-profit organization that represents charity organizations which have undergone a series of screening to ensure they meet the highest standards of public accountability and effectiveness. </p>
+
             <p>We guarantee every patner charity included is financially competent and is a non-profit organization </p>
+            <p><span>For more details go to our charity-finder</span></p>
             </div>
             <h4 className="mb-0">Some of our enlisted charity organizations </h4>
             <div id='home-list' className="d-flex " >
