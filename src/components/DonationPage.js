@@ -1,13 +1,16 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import '../stylesheets/DonationPage.css'
 
 function DonationPage(){
+
+    const location = useLocation();
 
     return(
         <React.Fragment>
             <div className="container my-3" >
                 <h1 className="" >MAKE A DONATION TO</h1>
-                <h1 className="" >CHARITY ORGANIZATION RESOURCE INCORPORATED</h1>
+                <h1 className="" >{location.state?.charityName}</h1>
             </div>
             <div className="container" >
                 <div className="card" style={{width:"40rem"}} >

@@ -10,6 +10,10 @@ export default function CardComponent({charityName, category, city, state,takeNa
         navigate(`/details/${charityName}`)
     }
 
+    function donationClick(){
+        navigate(`/donations`,{state:{charityName:`${charityName}`}})
+    }
+
     return (
 
 <div className="card col-4 mb-2 me-3 mt-5 card-style" style={{width:'25rem'}}>
@@ -19,7 +23,7 @@ export default function CardComponent({charityName, category, city, state,takeNa
                 <p>{city}, {state}</p>
                 <div className="">
                   <Link className="btn btn-danger col-6 me-2" to={`/details/${charityName}`} >Show Details</Link>
-                  <button className="btn btn-info col-4 ">$ Donate</button>
+                  <button onClick={donationClick} className="btn btn-info col-4 ">$ Donate</button>
                  </div>
             </div>
     </div>
