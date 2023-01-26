@@ -1,5 +1,6 @@
 import React  from "react";
 import '../stylesheets/home.css'
+
 import CardComponent from "./Card";
 import { useEffect, useState } from 'react';
 
@@ -20,12 +21,21 @@ function Home({charityList, categories}){
   
 
         const categoryOptions = categories.map((category,index) => 
-            
-        <ul className="col-3 border border-dark" key={index} value={category.categoryId}>{category.categoryDesc}</ul>
+        {
+
+          if (category.categoryDesc === "Not Provided" || category.categoryDesc=== "Unknown"){ return null}
+          else{
+
+          return(
+          <ul className="col-3 border border-dark card-style" key={index} value={category.categoryId}>{category.categoryDesc}</ul>
+          )
+          }
+        }    
+        
            
          )
          
-         
+        
     return(
         <div>
             <header>
@@ -44,7 +54,7 @@ function Home({charityList, categories}){
              <div>
             <h4 className="mt-5 display-4">Charity Categories</h4>
             <div className="container">
-            <div className="row border border-dark">
+            <div className="row  border-dark">
               {categoryOptions}
              </div>
              </div>
