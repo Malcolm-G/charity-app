@@ -9,6 +9,7 @@ import DetailsPage from './DetailsPage';
 import LoginPage from './login/LoginPage';
 import SignUp from './login/SignUp';
 import Login from './login/Login';
+import MyDonations from './MyDonations';
 
 
 function App() {
@@ -53,6 +54,10 @@ function App() {
         <Route
          path="/donations"
          element={<DonationPage />}
+         />
+         <Route
+         path="/my-donations"
+         element={<MyDonations />}
          />
          <Route
         path="/details/:name"

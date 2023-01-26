@@ -17,7 +17,7 @@ function Navbar(){
                                 <Link className="nav-link mx-5" aria-current="page" to="/finder">CHARITY-FINDER</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link mx-5" aria-current="page" to="/donations">MY-DONATIONS</Link>
+                                <Link className="nav-link mx-5" aria-current="page" to="/my-donations   ">MY-DONATIONS</Link>
                             </li>
                         </ul>
                     </div>
