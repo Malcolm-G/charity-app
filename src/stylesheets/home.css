@@ -28,3 +28,9 @@
   .home-pic{
     text-align: center;
   }
+
+  #cat-display{
+    font-size: px;
+    font-weight: 700;
+    font-style: oblique;
+  }
