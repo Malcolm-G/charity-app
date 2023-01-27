@@ -1,0 +1,30 @@
+#searchResults{
+    margin-left: 100px;
+  }
+
+
+  #location{
+    margin-left: 600px;
+    margin-top: -40px;
+    height: 40px;
+  }
+  
+  #locationName{
+    margin-left: 600px;
+    margin-top: -60px;
+  }
+  
+  #category{
+    margin-left: 250px;
+    margin-top: 2px;
+  }
+  
+  #categoryName{
+    margin-left: 250px;
+    margin-top: 10px;
+  }
+
+  .card-style{
+    background-color: rgba(207, 190, 175, 0.815)
+  }
+  
