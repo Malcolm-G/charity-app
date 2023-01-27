@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "../../stylesheets/SignUp.css"
 import { useNavigate } from "react-router-dom";
 
+const API = "https://charity-users-db.vercel.app/users"
+
 function SignUp({users,setUsers}){
 
     const [username,setUsername] = useState('');
@@ -36,6 +38,16 @@ function SignUp({users,setUsers}){
         else{
             setUsers(newUsers);
             navigate('/login')
+
+            fetch(API,{
+                method:'POST',
+                headers:{
+                    'Content-Type': 'application/json',
+                },
+                body:JSON.stringify(newUser)
+            })
+            .then(resp=>resp.json())
+            .then(data=>console.log(data))
         }
     }
 
