@@ -36,14 +36,15 @@
   }
   #welcome{
     background-clip: text;
-    background-image: linear-gradient(to right, #09f1b8, #00a2ff, #ff00d2, #fed90f);
-    font-weight: 800;
-    font-family:'Trebuchet MS';
+    background-color: black;
+    font-weight: 900;
+    font-family:Arial Narrow Bold;
     font-style: italic;
+    font-size: 50px;
   }
   p{
-    font-family: Georgia;
-    font-size: 20px;
+  
+    font-size: 22px;
     margin: 0 0 20px;
   }
 
@@ -62,4 +63,8 @@
     font-family: Tahoma;
     font-size: 20px;
     text-emphasis-color: black;
+  }
+
+  .cat-text{
+    -webkit-text-fill-color: black;
   }
