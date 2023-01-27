@@ -1,13 +1,23 @@
 import React from "react"
 import {Link, useNavigate} from "react-router-dom"
 
-export default function CardComponent({charityName, category, city, state,takeName}){
+export default function CardComponent({charityName, category, city, state,takeName,ein,isLoggedIn}){
 
     const navigate = useNavigate()
 
     function handleClick()
     {
         navigate(`/details/${charityName}`)
+    }
+
+    function donationClick(){
+        if(isLoggedIn){
+            navigate(`/donations`,{state:{charityName:`${charityName}`,ein:`${ein}`}})
+        }
+        else{
+            alert('Please Log in to donate')
+        }
+        
     }
 
     return (
@@ -19,7 +29,7 @@ export default function CardComponent({charityName, category, city, state,takeNa
                 <p>{city}, {state}</p>
                 <div className="">
                   <Link className="btn position-absolute bottom-0 start-0 btn-danger col-6 me-2" to={`/details/${charityName}`} >Show Details</Link>
-                  <button className="btn btn-info col-4 position-absolute bottom-0 start-50 ms-5 mb-0 ">$ Donate</button>
+                  <button onClick={donationClick} className="btn btn-info col-4 position-absolute bottom-0 start-50 ms-5 mb-0 ">$ Donate</button>
                  </div>
             </div>
     </div>

@@ -3,7 +3,7 @@ import CardComponent from "./Card";
 import "../stylesheets/finder.css"
 
 
-function Finder({charityList, categories}){
+function Finder({charityList, categories,isLoggedIn}){
 
     const [state, setState] = useState("All")
     const [category, setCategory] = useState("Not Provided")
@@ -35,6 +35,8 @@ function Finder({charityList, categories}){
         category={charity.category} 
         city={charity.city}
         state={charity.state}
+        ein={charity.ein}
+        isLoggedIn={isLoggedIn}
         />
         )})
 

@@ -9,6 +9,7 @@ import DetailsPage from './DetailsPage';
 import LoginPage from './login/LoginPage';
 import SignUp from './login/SignUp';
 import Login from './login/Login';
+import MyDonations from './MyDonations';
 
 
 function App() {
@@ -16,7 +17,12 @@ function App() {
   const SEARCH_API = "https://charity-app-charity-list-db-json.vercel.app/api/data"
 
   const [charityList,setCharityList] = useState([]);
-  const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState([]);
+  const [users,setUsers] = useState([])
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser,setCurrentUser] = useState({});
+
+  console.log(users)
 
   useEffect(()=>{
     fetch(SEARCH_API)
@@ -30,31 +36,39 @@ function App() {
       .then(data => setCategories(data))
   },[])
 
-  
+  useEffect(() => {
+    fetch("https://charity-users-db.vercel.app/users")
+    .then(response => response.json())
+    .then(data => setUsers(data))
+},[])
   
   return (
     <div>
-      <Navbar/>
+      <Navbar currentUser={currentUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Routes>
         <Route
          path="/login"
-         element={<Login />}
+         element={<Login users={users} setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser} />}
          />
          <Route
          path="/signup"
-         element={<SignUp />}
+         element={<SignUp users={users} setUsers={setUsers} />}
          />
         <Route
         exact path="/"
-        element={<Home charityList={charityList} categories={categories}/>}
+        element={<Home charityList={charityList} categories={categories} isLoggedIn={isLoggedIn} />}
         />
         <Route
         path="/finder"
-        element={<Finder charityList={charityList} categories={categories}/>}
+        element={<Finder charityList={charityList} categories={categories} isLoggedIn={isLoggedIn} />}
         />
         <Route
          path="/donations"
-         element={<DonationPage />}
+         element={<DonationPage user={currentUser} users={users} setUsers={setUsers} setCurrentUser={setCurrentUser} />}
+         />
+         <Route
+         path="/my-donations"
+         element={<MyDonations user={currentUser}/>}
          />
          <Route
         path="/details/:name"
