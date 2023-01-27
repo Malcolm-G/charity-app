@@ -1,15 +1,17 @@
 import { buildQueries } from "@testing-library/react";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 function Navbar({currentUser,isLoggedIn,setIsLoggedIn}){
 
     const ulClasses = isLoggedIn?'navbar-nav mx-auto mb-2 mb-lg-0 w-50':`navbar-nav mx-auto mb-2 mb-lg-0`;
+    const navigate = useNavigate()
 
     function nameClicked(){
         if(window.confirm('Do you wish to Sign out?')){
-            setIsLoggedIn(false)
+            navigate('/');
+            setIsLoggedIn(false);
         }
     }
 
@@ -31,7 +33,7 @@ function Navbar({currentUser,isLoggedIn,setIsLoggedIn}){
                             </li>:null}
                         </ul>
                     </div>
-                    {isLoggedIn?<Link className="nav-link navbar-brand" onClick={nameClicked} >{currentUser.username}</Link>:<Link className="nav-link navbar-brand" to="/login" >LOGIN</Link>}
+                    {isLoggedIn?<input type='button' className="nav-link navbar-brand btn btn-link" onClick={nameClicked} value={currentUser.username} />:<Link className="nav-link navbar-brand" to="/login" >LOGIN</Link>}
                 </div>
             </nav>
     )
