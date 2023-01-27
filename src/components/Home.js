@@ -1,6 +1,7 @@
 import React  from "react";
 import '../stylesheets/home.css'
 
+
 import CardComponent from "./Card";
 import { useEffect, useState } from 'react';
 
@@ -47,12 +48,12 @@ function Home({charityList, categories,isLoggedIn}){
           <p>Come and make them Smile</p>
           </header> */}
           <div className=" container home-pic text-muted bg-body-tertiary">
-            <h1 id="welcome">WELCOME !!</h1>
-            <div>
+            <h1 className="font-effect-shadow-multiple" id="welcome" >WELCOME !!</h1>
+            <div style={{fontFamily: "sofia"}}>
             <p>We are your trusted partners in support of charity and charity organizations </p>
             <p className="me-5 ms-5">Touch A Life is a non-profit organization that represents charity organizations which have undergone a series of screening to ensure they meet the highest standards of public accountability and effectiveness. </p>
 
-            <p>We guarantee every patner charity included is financially competent and is a non-profit organization </p>
+            <p>We guarantee every partner charity included is financially competent and is a non-profit organization </p>
             <p><span>For more details go to our charity-finder</span></p>
             </div>
             <h4 className="mb-0">Some of our enlisted charity organizations </h4>
@@ -62,7 +63,7 @@ function Home({charityList, categories,isLoggedIn}){
              <div>
             <h4 className="mt-5 display-4">Charity Categories</h4>
             <div className="container">
-            <div className="row  border-dark">
+            <div className="row  border-dark cat-text">
               {categoryOptions}
              </div>
              </div>
