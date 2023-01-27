@@ -27,13 +27,19 @@ function DonationPage({user,users,setCurrentUser}){
 
     return(
         <React.Fragment>
-            <div className="container-75 heading" >
+            {/* <div className="container heading" >
                 <div className="container-75 pt-4 text-center" >
                     <h1 className="mb-0 pb-2" style={{backgroundColor:'whitesmoke'}} >MAKE A DONATION TO</h1>
                     <h1 className="mt-0" style={{backgroundColor:'whitesmoke'}} > {location.state.charityName} </h1>
                 </div>
-            </div>
-            <div className="container mx-auto" >
+            </div> */}
+            <div className="container mx-auto bg-body-tertiary" >
+                <div className="container heading" >
+                    <div className="container-75 pt-0 text-center" >
+                        <h1 className="mb-0 pb-2" style={{backgroundColor:'whitesmoke'}} >MAKE A DONATION TO</h1>
+                        <h1 className="mt-0" style={{backgroundColor:'whitesmoke'}} > {location.state.charityName} </h1>
+                    </div>
+                </div>
                 <div className="card mx-auto mb-5" style={{width:"70rem"}} >
                     <form onSubmit={(e)=>donateSubmit(e)} >
                         <div className="card-body text-bg-secondary d-flex flex-row justify-content-between flex-wrap" >
@@ -56,7 +62,7 @@ function DonationPage({user,users,setCurrentUser}){
                             type="button" className="btn btn-lg btn-light mx-3" >$250</button>
                             <button
                             onClick={(e)=>buttonHandler(e,"")}
-                            type="button" className="btn btn-lg btn-light mx-auto" >Other</button>
+                            type="button" className="btn btn-lg btn-light mx-3" >Other</button>
                             <div className="break" ></div>
                             <input required type="number" placeholder="Amount" className="mx-auto mt-4"
                             onChange={(e)=>setAmountValue(()=>e.target.value)}

@@ -42,7 +42,7 @@ function Finder({charityList, categories,isLoggedIn}){
 
     return(
         <>
-        <div className="row">   
+        <div className="row bg-body-tertiary container mx-auto">   
             {/* input for search category */}
             <label id="categoryName" htmlFor="category">Category:</label>
             <select className="form-select" name="category" id="category" onChange={e => setCategory(e.target.value)} style={{width:'300px'}}>
@@ -57,7 +57,7 @@ function Finder({charityList, categories,isLoggedIn}){
             </select>
         </div>
 
-        <div id="searchResults" className="row">
+        <div id="searchResults" className="row bg-body-tertiary container mx-auto">
             <h3 >Search Results({finalResult.length})</h3>
              {charityCard} 
           

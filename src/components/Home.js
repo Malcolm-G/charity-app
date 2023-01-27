@@ -25,7 +25,10 @@ function Home({charityList, categories,isLoggedIn}){
         const categoryOptions = categories.map((category,index) => 
         {
 
+          console.log(category.categoryDesc)
+
           if (category.categoryDesc === "Not Provided" || category.categoryDesc=== "Unknown"){ return null}
+          else if(category.categoryDesc === undefined){return null}
           else{
 
           return(
@@ -40,10 +43,10 @@ function Home({charityList, categories,isLoggedIn}){
         
     return(
         <div>
-            <header>
+            <header className="container bg-body-tertiary">
           <p>Come and make them Smile</p>
           </header>
-          <div className="home-pic text-muted">
+          <div className=" container home-pic text-muted bg-body-tertiary">
             <h1 id="welcome">WELCOME !!</h1>
             <div>
             <p>We are your trusted partners in support of charity and charity organizations </p>

@@ -32,13 +32,14 @@ function Login({users,setIsLoggedIn,setCurrentUser}){
 
     return(
         <form
+        className=""
         onSubmit={(e)=>loginClicked(e)}
          method="#">
             <div className="imgcontainer">
                 <img src={image} alt="Avatar" className="avatar"/>
             </div>
 
-            <div className="container login-container">
+            <div className="container login-container bg-body-tertiary">
                 <label htmlFor="uname"><b>Username</b></label>
                 <input
                 onChange={(e)=>setUsername(e.target.value)}
