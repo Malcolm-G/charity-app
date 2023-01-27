@@ -56,7 +56,7 @@ function DonationPage({user,users,setCurrentUser}){
                             type="button" className="btn btn-lg btn-light mx-3" >$250</button>
                             <button
                             onClick={(e)=>buttonHandler(e,"")}
-                            type="button" className="btn btn-lg btn-light mx-auto" >Other</button>
+                            type="button" className="btn btn-lg btn-light mx-3" >Other</button>
                             <div className="break" ></div>
                             <input required type="number" placeholder="Amount" className="mx-auto mt-4"
                             onChange={(e)=>setAmountValue(()=>e.target.value)}
