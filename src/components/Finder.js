@@ -57,7 +57,7 @@ function Finder({charityList, categories,isLoggedIn}){
             </select>
         </div>
 
-        <div id="searchResults" className="row bg-body-tertiary container mx-auto">
+        <div id="searchResults" className="row bg-body-tertiary container mx-auto justify-content-center">
             <h3 >Search Results({finalResult.length})</h3>
              {charityCard} 
           
