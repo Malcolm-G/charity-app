@@ -3,7 +3,7 @@ import '../stylesheets/home.css'
 import CardComponent from "./Card";
 import { useEffect, useState } from 'react';
 
-function Home({charityList, categories}){
+function Home({charityList, categories,isLoggedIn}){
 
     const charityCard = charityList.map((charity,index) => {
        if (index<=10){return (
@@ -14,6 +14,7 @@ function Home({charityList, categories}){
         city={charity.city}
         state={charity.state}
         ein={charity.ein}
+        isLoggedIn={isLoggedIn}
         />
         )}
         })

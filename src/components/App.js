@@ -55,11 +55,11 @@ function App() {
          />
         <Route
         exact path="/"
-        element={<Home charityList={charityList} categories={categories}/>}
+        element={<Home charityList={charityList} categories={categories} isLoggedIn={isLoggedIn} />}
         />
         <Route
         path="/finder"
-        element={<Finder charityList={charityList} categories={categories}/>}
+        element={<Finder charityList={charityList} categories={categories} isLoggedIn={isLoggedIn} />}
         />
         <Route
          path="/donations"
