@@ -1,30 +1,68 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../stylesheets/SignUp.css"
 import { useNavigate } from "react-router-dom";
 
-function SignUp(){
+function SignUp({users,setUsers}){
+
+    const [username,setUsername] = useState('');
+    const [password,setPassword] = useState('');
+    const [rPassword,setRPassword] = useState('');
 
     const navigate = useNavigate();
+    const newId = users[users.length-1]?.id+1;
+
+    const newUser = {
+        id:newId,
+        username:username,
+        password:password,
+        donations:[]
+    }
 
     function cancelClicked(){
         navigate("/login");
     }
 
+    function signClicked(e){
+        e.preventDefault();
+        const newUsers = [...users,newUser]
+        const userFound = users.find(user=>user.username===username);
+
+        if(userFound){
+            alert('Username already exist')
+        }
+        else if(password!==rPassword){
+            alert('Confirm password inputs!')
+        }
+        else{
+            setUsers(newUsers);
+            navigate('/login')
+        }
+    }
+
     return(
-        <form action="action_page.php" style={{border:"1px solid #ccc"}}>
+        <form onSubmit={(e)=>signClicked(e)} style={{border:"1px solid #ccc"}}>
             <div className="container">
                 <h1>Sign Up</h1>
                 <p>Please fill in this form to create an account.</p>
                 <hr/>
 
-                <label for="username"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="username" required/>
+                <label htmlFor="username"><b>Username</b></label>
+                <input
+                onChange={(e)=>setUsername(e.target.value)}
+                value={username}
+                type="text" placeholder="Enter Username" name="username" required/>
 
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required/>
+                <label htmlFor="psw"><b>Password</b></label>
+                <input
+                onChange={(e)=>setPassword(e.target.value)}
+                value={password}
+                type="password" placeholder="Enter Password" name="psw" required/>
 
-                <label for="psw-repeat"><b>Repeat Password</b></label>
-                <input type="password" placeholder="Repeat Password" name="psw-repeat" required/>
+                <label htmlFor="psw-repeat"><b>Repeat Password</b></label>
+                <input
+                onChange={(e)=>setRPassword(e.target.value)}
+                value={rPassword}
+                type="password" placeholder="Repeat Password" name="psw-repeat" required/>
 
                 {/* <label>
                 <input type="checkbox" checked="checked" name="remember" style={{marginBottom:"15px"}}/> Remember me

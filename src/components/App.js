@@ -22,6 +22,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser,setCurrentUser] = useState({});
 
+  console.log(users)
 
   useEffect(()=>{
     fetch(SEARCH_API)
@@ -51,7 +52,7 @@ function App() {
          />
          <Route
          path="/signup"
-         element={<SignUp users={users} />}
+         element={<SignUp users={users} setUsers={setUsers} />}
          />
         <Route
         exact path="/"
