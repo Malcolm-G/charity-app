@@ -3,11 +3,11 @@ import '../stylesheets/MyDonations.css';
 
 function MyDonations({user}){
 
-    console.log(user)
+    // console.log(user)
 
-    const donationList = user.donations?.map((donation)=>{
+    const donationList = user.donations?.map((donation,index)=>{
         return(
-            <tr>
+            <tr key={`my_donations`+index} >
                     <td>{donation.ein}</td>
                     <td>{donation.charity_name}</td>
                     <td>{donation.amount}</td>
