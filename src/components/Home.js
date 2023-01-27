@@ -43,9 +43,9 @@ function Home({charityList, categories,isLoggedIn}){
         
     return(
         <div>
-            <header className="container bg-body-tertiary">
+            {/* <header className="container bg-body-tertiary">
           <p>Come and make them Smile</p>
-          </header>
+          </header> */}
           <div className=" container home-pic text-muted bg-body-tertiary">
             <h1 id="welcome">WELCOME !!</h1>
             <div>
