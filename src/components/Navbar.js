@@ -16,7 +16,7 @@ function Navbar({currentUser,isLoggedIn,setIsLoggedIn}){
     }
 
     return(
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <nav className="navbar navbar-expand-lg bg-body-secondary">
                 <div className="container-fluid">
                     <Link className="navbar-brand h1" to="/"
                     >TOUCH A LIFE</Link>

@@ -43,7 +43,7 @@ function App() {
 },[])
   
   return (
-    <div>
+    <div className='bg-body-secondary'>
       <Navbar currentUser={currentUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Routes>
         <Route
