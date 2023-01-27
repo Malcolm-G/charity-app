@@ -31,7 +31,7 @@ function Navbar({currentUser,isLoggedIn,setIsLoggedIn}){
                             </li>:null}
                         </ul>
                     </div>
-                    {isLoggedIn?<Link className="nav-link navbar-brand" to="" onClick={nameClicked} >{currentUser.username}</Link>:<Link className="nav-link navbar-brand" to="/login" >LOGIN</Link>}
+                    {isLoggedIn?<Link className="nav-link navbar-brand" onClick={nameClicked} >{currentUser.username}</Link>:<Link className="nav-link navbar-brand" to="/login" >LOGIN</Link>}
                 </div>
             </nav>
     )

@@ -1,11 +1,12 @@
 import React,{useState} from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import '../stylesheets/DonationPage.css'
 
 function DonationPage({user,users,setCurrentUser}){
 
     const [amountValue,setAmountValue] = useState(5);
     const location = useLocation();
+    const navigate = useNavigate();
 
     function buttonHandler(e,value){
         const buttonList = e.target.parentElement.querySelectorAll('button');
@@ -17,10 +18,10 @@ function DonationPage({user,users,setCurrentUser}){
     function donateSubmit(e){
         e.preventDefault()
         const newDonations = [...user.donations,{charity_name:`${location.state.charityName}`,ein:`${location.state.ein}`,amount:`${amountValue}`}]
-        const updatedUser = {...user,'donations':`${newDonations}`}
-
-
-        console.log(updatedUser);
+        const updatedUser = {...user,'donations':newDonations}
+        setCurrentUser(updatedUser);
+        alert('Donation Made');
+        navigate('/my-donations')
 
     }
 
